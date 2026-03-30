@@ -56,12 +56,15 @@ body { font-family: Arial, sans-serif; margin:20px; }
 
 <body>
 
-<h2>A Naughty Story just for you my darling</h2>
+<h2>A Naughty Storys</h2>
 
 <div class="center-btn-container">
     <button class="ethereal-btn" onclick="playAudio()">Unraveling Integrity</button>
 </div>
 
+<div class="center-btn-container">
+    <button class="ethereal-btn" onclick="playAudio()">Professor Dominant</button>
+</div>
 <!-- IMAGE -->
 <div class="overlay" id="overlay">
     <img src="angel.jpg">
@@ -73,7 +76,11 @@ body { font-family: Arial, sans-serif; margin:20px; }
         <source src="story.mp3" type="audio/mpeg">
     </audio>
 </div>
-
+<div class="audio-box" id="audioBox">
+    <audio id="audio" controls>
+        <source src="story1.mp3" type="audio/mpeg">
+    </audio>
+</div>
 <script>
 function playAudio(){
     const audio = document.getElementById('audio');
