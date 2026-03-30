@@ -2,88 +2,137 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=0.8">
 <title>Stories Collection</title>
-
 <style>
-body { font-family: Arial, sans-serif; margin:20px; }
+body { 
+  font-family: Arial, sans-serif; 
+  margin:0;
+  padding:0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #121212; /* Dark Background */
+  color: #ffffff; /* White Text */
+}
+
+/* BACKGROUND IMAGE */
+body::before {
+  content: '';
+  position: fixed;
+  top: 100px;
+  left: 80px;
+  width: 70%;
+  height: 70%;
+  background-image: url('dom.gif'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3; /* Opacity 50% */
+  z-index: -1;
+}
 
 /* NEW CENTER BUTTON */
 .center-btn-container {
-    display:flex;
-    justify-content:center;
-    margin-top:80px;
+  display:flex;
+  flex-direction: column; 
+  align-items:center;
+  margin-top: 50px; /* Moved further down from top */
+  gap: 300px; /* Increased space between the two buttons */
 }
+
 .ethereal-btn{
-    padding:25px 60px;
-    font-size:24px;
-    font-weight:bold;
-    color:#fff;
-    background:linear-gradient(145deg,#9c27b0,#3f51b5);
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+  padding:25px 60px;
+  font-size:24px;
+  font-weight:bold;
+  color:#fff;
+  background:linear-gradient(145deg,#9c27b0,#3f51b5);
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  box-shadow:0 10px 20px rgba(0,0,0,0.4);
 }
 
 /* IMAGE OVERLAY */
 .overlay {
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:70%;
-    margin:20px;
-    display:none;
-    z-index:999;
-}
-.overlay img{
-    width:100%;
-    border-radius:12px;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:70%;
+  margin:20px;
+  display:none;
+  z-index:999;
 }
 
-/* AUDIO PROGRESS */
+.overlay img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* AUDIO BOXES - Positioned under buttons */
 .audio-box{
-    position:fixed;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    width:70%;
-    display:none;
+  margin-top: 15px;
+  display:none;
+}
+
+audio {
+  width: 300px;
 }
 </style>
 </head>
-
 <body>
 
-<h2>A Naughty Storys</h2>
+<h2>A Gift of Naughty Stories ❤️❤️❤️💓🥹</h2>
 
 <div class="center-btn-container">
-    <button class="ethereal-btn" onclick="playAudio()">Professor Dominant</button>
+
+  <!-- FIRST BUTTON GROUP -->
+  <div>
+    <button class="ethereal-btn" onclick="playAudio1()">Professor Dominant</button>
+    <div class="audio-box" id="audioBox1">
+      <audio id="audio1" controls>
+        <source src="alpha1.mp3" type="audio/mpeg">
+      
+    </div>
+  </div>
+
+  <!-- SECOND BUTTON GROUP -->
+  <div>
+    <button class="ethereal-btn" onclick="playAudio2()">Students Thrsis Emergency</button>
+    <div class="audio-box" id="audioBox2">
+      <audio id="audio2" controls>
+        <source src="alpha2.mp3" type="audio/mpeg">
+      
+    </div>
+  </div>
+
 </div>
 
-<!-- IMAGE -->
+<!-- IMAGE OVERLAY -->
 <div class="overlay" id="overlay">
-    <img src="dom2.gif">
+<img src="dom2.gif">
 </div>
 
-<!-- AUDIO -->
-<div class="audio-box" id="audioBox">
-    <audio id="audio" controls>
-        <source src="alpha.mp3" type="audio/mpeg">
-    </audio>
-</div>
+<script>
+function playAudio1(){
+  const audio = document.getElementById('audio1');
+  const box = document.getElementById('audioBox1');
+  const overlay = document.getElementById('overlay');
+  
+  overlay.style.display = "block";
+  box.style.display = "block";
+  audio.play();
+}
 
-    <script>
-function playAudio(){
-    const audio = document.getElementById('audio');
-    const overlay = document.getElementById('overlay');
-    const box = document.getElementById('audioBox');
-
-    overlay.style.display = "block";
-    box.style.display = "block";
-
-    audio.play();
+function playAudio2(){
+  const audio = document.getElementById('audio2');
+  const box = document.getElementById('audioBox2');
+  const overlay = document.getElementById('overlay');
+  
+  overlay.style.display = "block";
+  box.style.display = "block";
+  audio.play();
 }
 </script>
 
